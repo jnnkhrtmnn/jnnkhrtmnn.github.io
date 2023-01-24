@@ -35,6 +35,14 @@ table.center {
 th {
   text-align: left;
 }
+
+img.rounded {
+                border-radius: 10%; /* makes the corners round */
+                max-width: 100%; /* limits the width of the image */
+                max-height: 31ex; /* limits the height of the image */
+                object-fit: scale-down; /* ensures the image is not stretched */
+                margin-bottom: 10px; /* add space below the picture */
+              }
 </style>
 </head>
 <body>
@@ -47,7 +55,6 @@ th {
     <div class="w3-right w3-hide-small">
       <a href="#about" class="w3-bar-item w3-button">PROFILE</a>
       <a href="#resume" class="w3-bar-item w3-button"> RÉSUMÉ</a>
-      <a href="#work" class="w3-bar-item w3-button"> WORK</a>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -62,7 +69,6 @@ th {
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
   <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">PROFILE</a>
   <a href="#resume" onclick="w3_close()" class="w3-bar-item w3-button">RÉSUMÉ</a>
-  <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">WORK</a>
 </nav>
 
 <!-- Header with full-height image -->
@@ -75,6 +81,24 @@ th {
 <!-- About Section -->
 <div class="w3-container" style="padding:128px 16px" id="about">
   <h3 class="w3-center">PROFILE</h3>
+  <div class="row justify-content-between">
+    <div class="col-lg-8 px-3">
+      <p>Experienced Data Scienctist with roots in Statistics and Economics.</p>
+    </div>
+  </div>
+  <div class="row justify-content-between">
+    <div class="col-lg-8 px-3 order-2 order-lg-1">
+    </div>
+    <div
+      class="col-lg-4 d-flex justify-content-center justify-content-lg-end order-1 order-lg-2"
+    >
+      <img
+        src="images/profile_pic.jpg"
+        alt="Jannik Hartmann"
+        class="rounded"
+      />
+    </div>
+  </div>
   <p class="w3-center w3-large">Key features</p>
  
 </div>
@@ -164,12 +188,6 @@ th {
         </div>
     </div>
   </div>
-</div>
-
-<!-- Projectd Section -->
-<div class="w3-container" style="padding:128px 16px" id="work">
-  <h3 class="w3-center">PROJECTS</h3>
-  <p class="w3-center w3-large">...</p>
 </div>
 
 <!-- Modal for full size images on click-->
