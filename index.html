@@ -1,269 +1,530 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Jannik Hartmann &ndash; Data Scientist </title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jannik Hartmann — Data Science Manager</title>
+<meta name="description" content="Jannik Hartmann — Data Science Manager. Statistics and economics background; work across causal inference, ML, and experimentation." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232f6f5e'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter,Arial,sans-serif' font-size='30' font-weight='600' fill='white'%3EJH%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:wght@500;600&display=swap" />
 <style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+  :root {
+    --bg: #fafaf7;
+    --surface: #ffffff;
+    --ink: #111418;
+    --ink-soft: #4a5059;
+    --muted: #8a8f98;
+    --line: #e7e6e1;
+    --accent: #2f6f5e;
+    --accent-soft: #e7f0ec;
+    --radius: 14px;
+    --shadow: 0 1px 2px rgba(17,20,24,0.04), 0 8px 24px rgba(17,20,24,0.05);
+    --max: 960px;
+  }
 
-body, html {
-  height: 100%;
-  line-height: 1.8;
-}
+  * { box-sizing: border-box; }
 
-/* Full height image header */
-.bgimg-1 {
-  background-position: center;
-  background-size: cover;
-  background-image: url("/images/dalle2_background_image.png");
-  min-height: 30%;
-}
+  html, body { margin: 0; padding: 0; }
 
-.w3-bar .w3-button {
-  padding: 16px;
-}
+  body {
+    font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
 
-table.center {
-  margin-left: auto; 
-  margin-right: auto;
-}
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
 
-th {
-  text-align: left;
-}
+  h1, h2, h3 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 0 0 0.4em;
+  }
+  h1 { font-size: clamp(2.2rem, 4.2vw, 3.2rem); line-height: 1.1; }
+  h2 { font-size: 1.6rem; margin-top: 0; }
 
-img.rounded {
-                border-radius: 10%; /* makes the corners round */
-                max-width: 100%; /* limits the width of the image */
-                max-height: 31ex; /* limits the height of the image */
-                object-fit: scale-down; /* ensures the image is not stretched */
-                margin-bottom: 10px; /* add space below the picture */
-              }
+  .container {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Navbar */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250, 250, 247, 0.78);
+    backdrop-filter: saturate(140%) blur(10px);
+    -webkit-backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+  .nav-brand {
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 8px;
+  }
+  .nav-links a {
+    color: var(--ink-soft);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+  .nav-links a:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 80px 0 48px;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 180px;
+    gap: 48px;
+    align-items: center;
+  }
+  .hero-eyebrow {
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .hero-lede {
+    color: var(--ink-soft);
+    max-width: 56ch;
+    margin: 18px 0 0;
+  }
+  .avatar {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--line);
+    justify-self: end;
+  }
+
+  /* Section */
+  section {
+    padding: 64px 0;
+    border-top: 1px solid var(--line);
+  }
+  .section-title {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin: 0 0 24px;
+  }
+  .section-title + .subhead,
+  .section-title + .resume-group { margin-top: 8px; }
+
+  /* Resume timeline */
+  .resume-group {
+    margin-top: 32px;
+  }
+  .resume-group h3 {
+    font-family: "Inter", sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  .resume-item {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    gap: 24px;
+    padding: 14px 0;
+  }
+  .resume-item + .resume-item {
+    border-top: 1px dashed var(--line);
+  }
+  .resume-date {
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    font-size: 0.95rem;
+    padding-top: 2px;
+  }
+  .resume-role {
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .resume-org {
+    color: var(--ink-soft);
+  }
+
+  /* Subheading within a section (e.g. Interests, CLAUDE.md instructions…) */
+  .subhead {
+    font-family: "Inter", sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 40px 0 0;
+  }
+  .subhead-note {
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: normal;
+    font-style: italic;
+    color: var(--muted);
+    margin-left: 6px;
+  }
+
+  /* Interests */
+  .interests {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+  }
+  .interests li {
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid transparent;
+  }
+  .interests li.more {
+    background: transparent;
+    color: var(--muted);
+    border-color: var(--line);
+  }
+
+  /* Principles list */
+  .principles {
+    margin-top: 28px;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 18px;
+  }
+  .principles li {
+    padding-left: 20px;
+    border-left: 2px solid var(--accent);
+    max-width: 64ch;
+  }
+  .principles strong {
+    display: block;
+    color: var(--ink);
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .principles span {
+    color: var(--ink-soft);
+  }
+  .principles code,
+  p code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.88em;
+    padding: 1px 6px;
+    border-radius: 5px;
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+  .principles-source {
+    margin-top: 28px;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  /* Personally — one line */
+  .personally-line {
+    margin-top: 16px;
+    color: var(--ink-soft);
+    max-width: 64ch;
+  }
+
+  /* Resume impact bullets */
+  .resume-bullets {
+    margin: 6px 0 0;
+    padding: 0 0 0 18px;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+  .resume-bullets li {
+    margin: 2px 0;
+  }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 40px 0 56px;
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .socials {
+    display: flex;
+    gap: 10px;
+  }
+  .socials a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+    background: var(--surface);
+    transition: all 0.15s ease;
+  }
+  .socials a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-1px);
+    text-decoration: none;
+  }
+  .socials svg { width: 18px; height: 18px; }
+
+  /* Responsive */
+  @media (max-width: 720px) {
+    section { padding: 48px 0; }
+    .hero { padding: 48px 0 24px; }
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .avatar {
+      width: 120px;
+      height: 120px;
+      justify-self: start;
+      order: -1;
+    }
+    .resume-item {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+    .resume-date { font-size: 0.85rem; }
+    .nav-links a { padding: 8px 10px; font-size: 0.88rem; }
+    .section-title { font-size: 1.3rem; margin-bottom: 20px; }
+  }
+
+  @media (max-width: 420px) {
+    .container { padding: 0 18px; }
+    body { font-size: 16px; }
+    .nav-brand { font-size: 0.9rem; }
+    .nav-links a { padding: 6px 8px; font-size: 0.82rem; }
+  }
 </style>
 </head>
 <body>
 
-<!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <div class="w3-bar w3-white w3-card" id="myNavbar">
-    <a href="#home" class="w3-bar-item w3-button w3-wide">Jannik Hartmann | Experienced Data Scientist </a>
-    <!-- Right-sided navbar links -->
-    <div class="w3-right w3-hide-small">
-      <a href="#about" class="w3-bar-item w3-button">PROFILE</a>
-      <a href="#resume" class="w3-bar-item w3-button"> RÉSUMÉ</a>
-    </div>
-    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
-
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
-      <i class="fa fa-bars"></i>
-    </a>
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="nav-brand">Jannik Hartmann</a>
+    <nav class="nav-links">
+      <a href="#about">Profile</a>
+      <a href="#resume">Résumé</a>
+    </nav>
   </div>
-</div>
-
-<!-- Sidebar on small screens when clicking the menu icon -->
-<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
-  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">PROFILE</a>
-  <a href="#resume" onclick="w3_close()" class="w3-bar-item w3-button">RÉSUMÉ</a>
-</nav>
-
-<!-- Header with full-height image -->
-<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
-  <div class="w3-display-left w3-text-white" style="padding:240px">
-    <!--<span class="w3-jumbo w3-hide-small">under construction</span><br>-->
-  </div> 
 </header>
 
-<!-- About Section -->
-<div class="w3-container" style="padding:128px 16px" id="about">
-  <h3 class="w3">PROFILE</h3>
-  <div class="w3-row-padding w3-grayscale"></div>
-  <div class="row justify-content-between">
-    <div class="col-lg-8 px-3">
-      <p>Experienced Data Scienctist with roots in Statistics and Economics.</p>
-    </div>
-  </div>
-  <div class="row justify-content-between">
-    <div class="col-lg-8 px-3 order-2 order-lg-1">
-    </div>
-    <div
-      class="col-lg-4 d-flex justify-content-center justify-content-lg-end order-1 order-lg-2"
-    >
-      <img
-        src="images/profile_pic.jpg"
-        alt="Jannik Hartmann"
-        class="rounded"
-      />
-    </div>
-  </div> 
-</div>
+<main id="top">
 
+  <section class="hero" style="border-top:none;">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-eyebrow">Data Science Manager</div>
+          <h1>Jannik Hartmann</h1>
+          <p class="hero-lede">
+            I lead machine learning projects with statistical rigour and clean engineering &mdash; turning messy data into decisions and systems teams rely on. Economist and statistician by training; eight years of professional experience as a data scientist across healthcare, finance, and government. Happiest when a problem needs both a careful statistical frame and a working system at the other end.
+          </p>
+        </div>
+        <img src="images/profile_pic.jpg" alt="Jannik Hartmann" class="avatar" />
+      </div>
+    </div>
+  </section>
 
-<!-- Resume Section -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">Profile</h2>
 
-<div class="w3-container" style="padding:128px 16px" id="resume">
-  <h3 class="w3">RÉSUMÉ</h3>
-  <div class="w3-row-padding w3-grayscale">
-    <div class="w3-col">
-        <hr class="my-3" />
-            <table class="center">
-              <th> <b> Professional experience </b> </th>
-              <tr>
-                <td style="vertical-align: top">03/2023 - now</td>
-                <td></td>
-                <td>
-                  Data Science Manager,
-                  IQVIA
-                </td>
-              </tr>
-              <tr>
-              <tr>
-                <td style="vertical-align: top">05/2022 - 12/2022</td>
-                <td style="padding-right: 10px"></td>
-                <td>
-                  Quantitative AI Researcher,
-                  LEHNER INVESTMENTS Management
-                </td>
-              </tr>
-              <tr>
-                <td style="vertical-align: top">07/2020 - 04/2022</td>
-                <td></td>
-                <td>
-                  Senior Data Scientist & Senior Consultant,
-                  IBM
-                </td>
-              </tr>
-              <tr>
-                <td style="vertical-align: top">11/2018 - 06/2020</td>
-                <td></td>
-                <td>
-                  Data Scientist & Consultant,
-                  IBM
-                </td>
-              </tr>
-              <th> <b> Other experience </b> </th>
-              <tr>
-                <td style="vertical-align: top">06/2017 - 09/2017</td>
-                <td></td>
-                <td>
-                  Product Analytics Intern,
-                  DWS
-                </td>
-              </tr>
-              <tr>
-                <td style="vertical-align: top">03/2017 - 06/2017</td>
-                <td></td>
-                <td>
-                  Financial Risk Solutions Intern,
-                  Deloitte
-                </td>
-              </tr>
-              <tr>
-                <td style="vertical-align: top">09/2016 - 01/2017</td>
-                <td></td>
-                <td>
-                  Credit Risk Modeling Intern,
-                  Postbank
-                </td>
-              </tr>
-              <tr>
-                <td style="vertical-align: top">10/2015 - 08/2016</td>
-                <td></td>
-                <td>
-                  Student Teaching Assistant,
-                  University of Erfurt
-                </td>
-              </tr>
-              <th> <b> Education </b> </th>
-              <tr>
-                <td style="vertical-align: top">10/2017 - 10/2018</td>
-                <td style="padding-right: 10px"></td>
-                <td>MSc in Statistics, University of Warwick</td>
-              </tr>
-              <tr>
-                <td style="vertical-align: top">10/2013 - 09/2016</td>
-                <td></td>
-                <td>
-                  BA in Economics and Social Sciences, University of Erfurt
-                </td>
-              </tr>
-            </table>
+      <h3 class="subhead">Interests</h3>
+      <ul class="interests">
+        <li>Statistical Thinking</li>
+        <li>Machine Learning</li>
+        <li>Interpretability</li>
+        <li>Survival Analysis</li>
+        <li>Causal Inference</li>
+        <li>Experimentation</li>
+        <li>Mentoring</li>
+        <li>ML Systems</li>
+        <li>MLOps</li>
+        <li>Clean Code</li>
+        <li class="more">…</li>
+      </ul>
+
+      <h3 class="subhead">Personally</h3>
+      <p class="personally-line">
+        Father of one. Weightlifting (snatch and clean &amp; jerk, not the general gym activity), and cycling.
+      </p>
+
+      <h3 class="subhead">CLAUDE.md instructions I cannot work without <span class="subhead-note">(very inspired by Robert Martin and changing frequently)</span></h3>
+      <ul class="principles">
+        <li>
+          <strong>Single Responsibility.</strong>
+          <span>Every class and function has one reason to change.</span>
+        </li>
+        <li>
+          <strong>Keep functions small.</strong>
+          <span>If it needs a comment to explain <em>what</em> it does, rename or split it.</span>
+        </li>
+        <li>
+          <strong>Fail at the boundary.</strong>
+          <span>Not every error needs catching &mdash; let it propagate to where it can be handled honestly.</span>
+        </li>
+        <li>
+          <strong>Use <code>uv</code>, <code>pytest</code>, <code>pre-commit</code>.</strong>
+          <span>For env management and running Python, tests, and keeping the code PEP 8-compliant.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="resume">
+    <div class="container">
+      <h2 class="section-title">Résumé</h2>
+
+      <div class="resume-group">
+        <h3>Experience</h3>
+        <div class="resume-item">
+          <div class="resume-date">03/2023 — now</div>
+          <div>
+            <div><span class="resume-role">Data Science Manager</span>, <span class="resume-org">IQVIA</span></div>
+            <ul class="resume-bullets">
+              <li>Lead a team of 5 data scientists delivering 20+ production ML models for high-stakes clinical decisions at a hospital partner &mdash; flagging postoperative delirium risk, triaging to inpatient vs. outpatient care, supporting intervention choice in cardiac surgery, and forecasting multi-day trajectories (lab values, medication requirements, mortality) for patients awaiting heart transplantation</li>
+              <li>All models ship as FastAPI services on Dockerised on-premise hospital infrastructure, integrated with a near-real-time clinical database and accessible from the hospital's main clinical information system; a clinician-facing dashboard surfaces patient trajectories</li>
+              <li>Further workstreams: real-world persistence analysis of an siRNA cholesterol-lowering therapy versus competitor products, using real-world prescription data; modelling progression-free survival in multiple myeloma based on oncologist-reported data; and modelling side-effect risk in adjacent oncology treatments from clinical data and doctors' notes</li>
+            </ul>
           </div>
         </div>
+        <div class="resume-item">
+          <div class="resume-date">05/2022 — 12/2022</div>
+          <div>
+            <div><span class="resume-role">Quantitative AI Researcher</span>, <span class="resume-org">Investments Management Start-Up</span></div>
+            <ul class="resume-bullets">
+              <li>Researched and shipped ML-based trading strategies and portfolio optimisation for a long-only crypto fund; owned live data ingestion, MLflow model management, and automated signal generation</li>
+              <li>Led small-scale delivery projects and coached working students</li>
+            </ul>
+          </div>
+        </div>
+        <div class="resume-item">
+          <div class="resume-date">07/2020 — 04/2022</div>
+          <div>
+            <div><span class="resume-role">Senior Data Scientist &amp; Senior Consultant</span>, <span class="resume-org">IBM</span></div>
+            <ul class="resume-bullets">
+              <li>Technical lead on service-cost driver analysis and forecasting for immunoassay analysers (global healthcare, USA)</li>
+              <li>Fraud detection with network analytics and ML (government agency)</li>
+              <li>Conceptualised data science solutions for proposals and client workshops, coordinating sales strategy for IBM’s AI at Scale offering in DACH</li>
+              <li>Hired and mentored junior data scientists</li>
+              <li>Named IBM Top Technical Talent</li>
+            </ul>
+          </div>
+        </div>
+        <div class="resume-item">
+          <div class="resume-date">11/2018 — 06/2020</div>
+          <div>
+            <div><span class="resume-role">Data Scientist &amp; Consultant</span>, <span class="resume-org">IBM</span></div>
+            <ul class="resume-bullets">
+              <li>Built a named-entity-recognition PoC for legal references using semi-supervised labelling, CRF and LSTM models, and an annotation feedback loop (central bank)</li>
+              <li>Developed and validated an operational-risk model via body-tail-split Monte Carlo in R (automotive bank)</li>
+              <li>Developed a microservice-based NLP pipeline for document analytics</li>
+              <li>Co-led the IBM Data Science Community Europe (250+ members)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="resume-item">
+          <div class="resume-date">06/2017 — 09/2017</div>
+          <div><span class="resume-role">Product Analytics Intern</span>, <span class="resume-org">DWS</span></div>
+        </div>
+        <div class="resume-item">
+          <div class="resume-date">03/2017 — 06/2017</div>
+          <div><span class="resume-role">Financial Risk Solutions Intern</span>, <span class="resume-org">Deloitte</span></div>
+        </div>
+        <div class="resume-item">
+          <div class="resume-date">09/2016 — 01/2017</div>
+          <div><span class="resume-role">Credit Risk Modeling Intern</span>, <span class="resume-org">Postbank</span></div>
+        </div>
+        <div class="resume-item">
+          <div class="resume-date">10/2015 — 08/2016</div>
+          <div><span class="resume-role">Student Teaching Assistant</span>, <span class="resume-org">University of Erfurt</span></div>
+        </div>
+      </div>
+
+      <div class="resume-group">
+        <h3>Education</h3>
+        <div class="resume-item">
+          <div class="resume-date">10/2017 — 10/2018</div>
+          <div><span class="resume-role">MSc in Statistics</span>, <span class="resume-org">University of Warwick</span></div>
+        </div>
+        <div class="resume-item">
+          <div class="resume-date">10/2013 — 09/2016</div>
+          <div><span class="resume-role">BA in Economics and Social Sciences</span>, <span class="resume-org">University of Erfurt</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>© <span id="year"></span> Jannik Hartmann</div>
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/jannik-hartmann-4a7234112/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.26 2.37 4.26 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0z"/></svg>
+      </a>
+      <a href="https://github.com/jnnkhrtmnn/" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.93c.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.05 11.05 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.24 2.75.12 3.04.74.8 1.18 1.82 1.18 3.08 0 4.42-2.69 5.4-5.25 5.68.41.36.78 1.06.78 2.14 0 1.54-.01 2.79-.01 3.17 0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+      </a>
     </div>
   </div>
-</div>
-
-<!-- Modal for full size images on click-->
-<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
-  <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image">×</span>
-  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-    <img id="img01" class="w3-image">
-    <p id="caption" class="w3-opacity w3-large"></p>
-  </div>
-</div>
-
-
-<!-- Footer -->
-<footer class="w3-center w3-black w3-padding-32">
-  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-  <div class="w3-xxlarge w3-section">
-    <p align="center">
-      <a
-      style="text-decoration:none"
-      href="https://www.linkedin.com/in/jannik-hartmann-4a7234112/"
-      class="n_link"
-      role="button"
-      target="_blank"
-    >
-    <span class="fa fa-linkedin w3-hover-text-grey"></span>
-    </a>
-      &nbsp;
-      <a
-        style="text-decoration:none"
-        href="https://github.com/jnnkhrtmnn/"
-        class="n_link"
-        role="button"
-        target="_blank"
-      >
-      <span class="fa fa-github w3-hover-text-grey"></span>
-      </a>
-    </p>
-  </div>
-  <p> Jannik Hartmann | Last updated: May 2023 </p>
 </footer>
 
-
-
 <script>
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
-
-
-// Toggle between showing and hiding the sidebar when clicking the menu icon
-var mySidebar = document.getElementById("mySidebar");
-
-function w3_open() {
-  if (mySidebar.style.display === 'block') {
-    mySidebar.style.display = 'none';
-  } else {
-    mySidebar.style.display = 'block';
-  }
-}
-
-// Close the sidebar with the close button
-function w3_close() {
-    mySidebar.style.display = "none";
-}
+  document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
 </body>
